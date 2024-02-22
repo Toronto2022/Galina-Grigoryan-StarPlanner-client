@@ -1,0 +1,19 @@
+@import "../../styles/partials/mixins.scss";
+@import "../../styles/partials/variables.scss";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 2rem;
+
+  // @include tablet {
+  //   position: absolute;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 50px;
+  // }
+  &__text {
+    text-align: center;
+  }
+}

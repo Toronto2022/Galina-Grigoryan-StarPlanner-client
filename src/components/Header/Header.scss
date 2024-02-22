@@ -1,0 +1,14 @@
+@import "../../styles/partials/mixins.scss";
+@import "../../styles/partials/variables.scss";
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  &__menu {
+    display: flex;
+  }
+}
