@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Star Planner
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+StarPlanner aaplication allows kids to manage daily and weekly tasks with ease and fun.
 
-### `npm start`
+### Problem
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Traditional task management can be boring or challenging for kids, potentially demotivating them from completing their daily chores and assignments. This app addresses these challenges by making task management visually appealing and interactive, encouraging regular use through their favorite Star Wars themes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profile
 
-### `npm test`
+- Kids: Primary users who need a simple and engaging way to manage tasks.
+  Looking to manage daily tasks in a fun way.
+  Seeking motivation through interactive features and rewards.
+  -Parents: Secondary users who assist in monitoring and guiding their kids' task management.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+- Dynamic Star Wars Backgrounds: Unique Star Wars-themed backgrounds for each user session and daily tasks.
+  -Task Management: Create, update, delete, and complete tasks. Tasks are draggable for prioritization.
+  -Daily Themes: Different backgrounds for each day of the week.
+  -Task Counter and Current Day: Displays total tasks and the current day.
+  -Reminders: Sound reminders from Star Wars for upcoming tasks.
+  -Sound Notifications for Tasks: Engaging auditory elements with Star Wars sound effects for reminders and when tasks are marked complete.
+  -Custom Star Wars Avatars for Profiles: Allows users to choose a Star Wars character as their profile avatar from a dropdown of pre-defined characters.
+  -Daily Star Wars Quotes: A daily Star Wars quote displayed on the homepage or at the top of the to-do list, selected randomly each day.
+  -Task Prioritization: Enable users to set priority levels for tasks (e.g., High, Medium, Low) and sort tasks based on priority.
+  -Dark Mode: Implement a Dark Mode for the application, inspired by the Dark Side of the Force, to reduce eye strain and offer a visually appealing alternative.
+  -Simple Authentication: Implement simple login/logout functionality for user authentication, using local storage to remember the user's session.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Implementation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- MySQL
+- Express
+- Local storage
+- Client libraries:
+  - react
+  - react-router
+  - axios
+- Server libraries:
+  - knex
+  - express
+  - UUID
 
-### `npm run eject`
+### APIs
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Sitemap
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Home page
+- List of days of week
+- Register
+- Login
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Auth
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- JWT auth
 
-## Learn More
+## Roadmap
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Create client
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - Set up a React project with routes for home/login, daily task views, and settings using React Router.
 
-### Code Splitting
+- Create server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - Initialize an Express.js project for the backend with basic routing.
 
-### Analyzing the Bundle Size
+- Develop CRUD operations for tasks on both client and server sides.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Implement task prioritization and categorization features.
 
-### Making a Progressive Web App
+- CAdd functionality for dynamic background changes using the Star Wars API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Deploy client and server projects so all commits will be reflected in production
 
-### Advanced Configuration
+- Feature: Home page
+- Feature: Page for each day of week
+- Feature: Create account
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  - Implement register page + form
+  - Create POST /users/register endpoint
 
-### Deployment
+- Feature: Login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  - Implement login page + form
 
-### `npm run build` fails to minify
+  - Create POST /users/login endpoint
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Feature: Implement JWT tokens
+
+  - Server: Update expected requests / responses on protected endpoints
+  - Client: Store JWT in local storage, include JWT on axios calls
+
+- Implement draggable tasks
+
+- Add sound notifications for tasks
+
+- Create a Dark Mode toggle based on user preference
+
+Implement a daily Star Wars quote feature, fetching quotes from an external API or a predefined list.
+
+- Bug fixes
+
+- DEMO DAY
+
+## Nice-to-haves
+
+- Gamification: Introduce rewards for task completion.
+- Parental Controls: Features for parents to monitor and assist with task management.
+- Unit and Integration Tests
+- Theme Customization Feature

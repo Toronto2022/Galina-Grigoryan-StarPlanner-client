@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
-// import CalendarPage from "./pages/CalendarPage/CalendarPage";
+import CalendarPage from "./pages/CalendarPage/CalendarPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
 import "./styles/partials/global.scss";
 
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
-          {/* <Route path="/calendar" element={<CalendarPage />} /> */}
+          <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/taskpage" element={<TaskPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
