@@ -5,6 +5,7 @@ import CreateTaskPopup from "../../modals/CreateTask"; // Adjust the import base
 import Card from "../../components/Card/Card";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./ToDo.scss";
+
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const TodoList = () => {
@@ -69,7 +70,6 @@ const TodoList = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      // Refresh the task list or update the state directly if successful
       setTaskList((prev) =>
         prev.map((task) =>
           task.id === updatedTask.id ? { ...task, ...updatedTask } : task
@@ -97,7 +97,6 @@ const TodoList = () => {
   const updateListArray = async (updatedTask, index) => {
     const token = sessionStorage.getItem("token");
     try {
-      // Ensure the task ID is not undefined
       if (!updatedTask.id) {
         console.error("Task ID is undefined");
         return;
@@ -111,9 +110,8 @@ const TodoList = () => {
         }
       );
 
-      // Update the task list with the response data
       let tempList = [...taskList];
-      tempList[index] = response.data; // Assuming backend returns the updated task
+      tempList[index] = response.data;
       setTaskList(tempList);
     } catch (error) {
       console.error("Error updating task", error);
@@ -136,60 +134,13 @@ const TodoList = () => {
       );
 
       let tempList = [...taskList];
-      tempList.push(response.data); // Assuming backend returns the new task with an id
+      tempList.push(response.data);
       setTaskList(tempList);
       setModal(false);
     } catch (error) {
       console.error("Error saving new task", error);
     }
   };
-
-  // useEffect(() => {
-  //   let arr = localStorage.getItem("taskList");
-
-  //   if (arr) {
-  //     let tasks = JSON.parse(arr).map((task) => ({
-  //       ...task,
-  //       position: task.position || { x: 0, y: 0 }, // Provide a default position
-  //     }));
-  //     setTaskList(tasks);
-  //   }
-  // }, []);
-
-  // const updatePosition = (updatedTask, index) => {
-  //   let tempList = [...taskList];
-  //   tempList[index] = updatedTask;
-  //   setTaskList(tempList);
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  // };
-
-  // const deleteTask = (index) => {
-  //   let tempList = [...taskList];
-  //   tempList.splice(index, 1);
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  //   setTaskList(tempList);
-  //   // Consider removing window.location.reload() for a more React-friendly approach
-  // };
-
-  // const updateListArray = (obj, index) => {
-  //   let tempList = [...taskList];
-  //   tempList[index] = obj;
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  //   setTaskList(tempList);
-  // };
-
-  // const toggle = () => {
-  //   setModal(!modal);
-  // };
-
-  // const saveTask = (taskObj) => {
-  //   let tempList = [...taskList];
-  //   tempList.push(taskObj);
-  //   localStorage.setItem("taskList", JSON.stringify(tempList));
-  //   setTaskList(tempList);
-  //   setModal(false);
-  // };
-
   return (
     <>
       <div className="header text-center">

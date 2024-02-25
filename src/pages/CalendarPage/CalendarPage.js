@@ -50,7 +50,6 @@ export default function CalendarPage() {
     setDate(newDate);
     navigate("/taskpage", { state: { date: newDate } });
   };
-  // Style object for the background
   const backgroundStyle = backgroundImageUrl
     ? { backgroundImage: `url(${backgroundImageUrl})` }
     : {};

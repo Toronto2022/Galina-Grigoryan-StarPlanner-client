@@ -10,27 +10,18 @@ const Card = ({
   updateListArray,
   updatePosition,
 }) => {
-  console.log(taskObj);
   const nodeRef = useRef(null);
   const [modal, setModal] = useState(false);
   const [position, setPosition] = useState(taskObj.position || { x: 0, y: 0 });
-  const handleStart = (e, data) => {
-    // This function is called when dragging starts
-    // console.log("Start dragging", data.node);
-  };
+  const handleStart = (e, data) => {};
 
-  const handleDrag = (e, data) => {
-    // This function is called while dragging
-    // console.log("Currently dragging", data.x, data.y);
-  };
+  const handleDrag = (e, data) => {};
 
   const handleStop = (e, data) => {
-    // Update the position state
     const newPosition = { x: data.x, y: data.y };
     setPosition(newPosition);
     const updatedTask = { ...taskObj, position: newPosition };
     updatePosition(updatedTask, index);
-    console.log(data);
   };
 
   const colors = [
@@ -128,49 +119,3 @@ const Card = ({
 };
 
 export default Card;
-
-// useEffect(() => {
-//   let arr = localStorage.getItem("taskList");
-
-//   if (arr) {
-//     let tasks = JSON.parse(arr).map((task) => ({
-//       ...task,
-//       position: task.position || { x: 0, y: 0 }, // Provide a default position
-//     }));
-//     setTaskList(tasks);
-//   }
-// }, []);
-
-// const updatePosition = (updatedTask, index) => {
-//   let tempList = [...taskList];
-//   tempList[index] = updatedTask;
-//   setTaskList(tempList);
-//   localStorage.setItem("taskList", JSON.stringify(tempList));
-// };
-
-// const deleteTask = (index) => {
-//   let tempList = [...taskList];
-//   tempList.splice(index, 1);
-//   localStorage.setItem("taskList", JSON.stringify(tempList));
-//   setTaskList(tempList);
-//   // Consider removing window.location.reload() for a more React-friendly approach
-// };
-
-// const updateListArray = (obj, index) => {
-//   let tempList = [...taskList];
-//   tempList[index] = obj;
-//   localStorage.setItem("taskList", JSON.stringify(tempList));
-//   setTaskList(tempList);
-// };
-
-// const toggle = () => {
-//   setModal(!modal);
-// };
-
-// const saveTask = (taskObj) => {
-//   let tempList = [...taskList];
-//   tempList.push(taskObj);
-//   localStorage.setItem("taskList", JSON.stringify(tempList));
-//   setTaskList(tempList);
-//   setModal(false);
-// };

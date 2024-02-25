@@ -27,7 +27,7 @@ const EditTaskPopup = ({ modal, toggle, updateTask, taskObj }) => {
       description: description,
     };
     updateTask(tempObj);
-    toggle(); // Consider closing the modal on update
+    toggle();
   };
 
   if (!modal) return null;

@@ -23,15 +23,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
           Log Out
         </button>
       )}
-
-      {/* <nav className="header__menu">
-        <li>
-          <Link to="/login">Log In</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign Up</Link>
-        </li>
-      </nav> */}
     </div>
   );
 }

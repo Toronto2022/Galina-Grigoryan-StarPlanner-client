@@ -45,8 +45,5 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
       </form>
     </div>
   );
-  // if (!isLoggedIn) {
   return renderLogin();
-
-  // return <div>LoginPage</div>;
 }
