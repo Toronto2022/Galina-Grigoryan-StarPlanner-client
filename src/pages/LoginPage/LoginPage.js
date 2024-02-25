@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 const baseUrl = "http://localhost:8080";
 const loginUrl = `${baseUrl}/auth/login`;
 
-export default function LoginPage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -27,7 +26,6 @@ export default function LoginPage() {
       setErrorMessage("");
     } catch (error) {
       setIsLoginError(true);
-      // setErrorMessage(error.response.data.error.message);
     }
   };
   const renderLogin = () => (
@@ -47,8 +45,8 @@ export default function LoginPage() {
       </form>
     </div>
   );
-  if (!isLoggedIn) {
-    return renderLogin();
-  }
-  return <div>LoginPage</div>;
+  // if (!isLoggedIn) {
+  return renderLogin();
+
+  // return <div>LoginPage</div>;
 }
