@@ -68,14 +68,14 @@ const Card = ({
         onDrag={handleDrag}
         onStop={handleStop}
       >
-        <div className="card-wrapper mr-5" ref={nodeRef}>
+        <div className="card__wrapper" ref={nodeRef}>
           <div
-            className="card-top"
+            className="card__top"
             style={{ backgroundColor: colors[index % 5].primaryColor }}
           ></div>
           <div className="task-holder">
             <span
-              className="card-header"
+              className="card__header"
               style={{
                 backgroundColor: colors[index % 5].secondaryColor,
                 borderRadius: "10px",
@@ -83,7 +83,7 @@ const Card = ({
             >
               {taskObj.title}
             </span>
-            <p className="mt-3">{taskObj.description}</p>
+            <p className="card__description">{taskObj.description}</p>
 
             <div
               style={{ position: "absolute", right: "20px", bottom: "20px" }}

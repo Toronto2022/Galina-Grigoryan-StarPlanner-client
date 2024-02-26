@@ -1,14 +1,27 @@
 @import "../../styles/partials/mixins.scss";
 @import "../../styles/partials/variables.scss";
+@import "../../styles/partials/reset.scss";
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   &__logo {
     width: 4rem;
     height: 4rem;
+    margin-left: 3rem;
   }
   &__menu {
     display: flex;
+  }
+  &__btn {
+    color: #fff;
+    background-color: #2e66e5;
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    padding: 0 1rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    cursor: pointer;
   }
 }

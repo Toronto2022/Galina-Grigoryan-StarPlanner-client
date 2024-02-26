@@ -1,7 +1,7 @@
 // TodoList.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CreateTaskPopup from "../../modals/CreateTask"; // Adjust the import based on your project structure
+import CreateTaskPopup from "../../modals/CreateTask";
 import Card from "../../components/Card/Card";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./ToDo.scss";
@@ -23,13 +23,11 @@ const TodoList = () => {
         const response = await axios.get(`${REACT_APP_SERVER_URL}/api/tasks`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(response.data);
         const tasksWithPosition = response.data.map((task) => ({
           ...task,
           position: task.position ? JSON.parse(task.position) : { x: 0, y: 0 },
         }));
-        console.log(tasksWithPosition);
-        setTaskList(tasksWithPosition); // Set the tasks with positions in state
+        setTaskList(tasksWithPosition);
       } catch (error) {
         console.error("Error fetching tasks", error);
       }
@@ -141,10 +139,11 @@ const TodoList = () => {
       console.error("Error saving new task", error);
     }
   };
+
   return (
-    <>
+    <div className="main">
       <div className="header text-center">
-        <button className="btn btn-primary mt-2" onClick={toggle}>
+        <button className="btn btn-primary" onClick={toggle}>
           Create Task
         </button>
       </div>
@@ -165,7 +164,7 @@ const TodoList = () => {
       {modal && (
         <CreateTaskPopup toggle={toggle} modal={modal} save={saveTask} />
       )}
-    </>
+    </div>
   );
 };
 
