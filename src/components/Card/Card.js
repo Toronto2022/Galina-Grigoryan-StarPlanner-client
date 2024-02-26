@@ -1,7 +1,7 @@
-// Card.js
 import React, { useState, useRef } from "react";
 import EditTask from "../../modals/EditTask";
 import Draggable from "react-draggable";
+import "./Card.scss";
 
 const Card = ({
   taskObj,
@@ -84,12 +84,11 @@ const Card = ({
               {taskObj.title}
             </span>
             <p className="card__description">{taskObj.description}</p>
-
             <div
               style={{ position: "absolute", right: "20px", bottom: "20px" }}
             >
               <i
-                className="far fa-edit mr-3"
+                className="far fa-edit mr-3 card__edit"
                 style={{
                   color: colors[index % 5].primaryColor,
                   cursor: "pointer",

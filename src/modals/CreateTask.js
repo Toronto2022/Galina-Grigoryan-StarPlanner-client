@@ -1,4 +1,3 @@
-// CreateTaskPopup.js
 import React, { useState } from "react";
 import "./CreateTask.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";

@@ -7,8 +7,8 @@ import useRandomImage from "../../components/UseRandomImage/useRandomImage";
 export default function TaskPage() {
   const location = useLocation();
   const { date } = location.state || {};
-  const backgroundImageUrl = useRandomImage();
 
+  const backgroundImageUrl = useRandomImage();
   const backgroundStyle = backgroundImageUrl
     ? { backgroundImage: `url(${backgroundImageUrl})` }
     : {};
