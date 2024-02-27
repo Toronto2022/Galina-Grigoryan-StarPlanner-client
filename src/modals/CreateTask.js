@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./CreateTask.scss";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-const CreateTaskPopup = ({ modal, toggle, save }) => {
+const CreateTaskPopup = ({ modal, toggle, save, selectedDate }) => {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
 
@@ -18,9 +18,11 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    let taskObj = {};
-    taskObj["title"] = taskName;
-    taskObj["description"] = description;
+    let taskObj = {
+      title: taskName,
+      description: description,
+      task_date: selectedDate,
+    };
     save(taskObj);
   };
 

@@ -4,7 +4,7 @@ Star Planner
 
 ## Overview
 
-StarPlanner aaplication allows kids to manage daily and weekly tasks with ease and fun.
+StarPlanner application allows kids to manage daily and weekly tasks with ease and fun.
 
 ### Problem
 
@@ -28,7 +28,6 @@ Traditional task management can be boring or challenging for kids, potentially d
   -Custom Star Wars Avatars for Profiles: Allows users to choose a Star Wars character as their profile avatar from a dropdown of pre-defined characters.
   -Daily Star Wars Quotes: A daily Star Wars quote displayed on the homepage or at the top of the to-do list, selected randomly each day.
   -Task Prioritization: Enable users to set priority levels for tasks (e.g., High, Medium, Low) and sort tasks based on priority.
-  -Dark Mode: Implement a Dark Mode for the application, inspired by the Dark Side of the Force, to reduce eye strain and offer a visually appealing alternative.
   -Simple Authentication: Implement simple login/logout functionality for user authentication, using local storage to remember the user's session.
 
 ## Implementation
@@ -38,24 +37,24 @@ Traditional task management can be boring or challenging for kids, potentially d
 - React
 - MySQL
 - Express
+- Node.js
 - Local storage
-- Client libraries:
-  - react
-  - react-router
-  - axios
-- Server libraries:
-  - knex
-  - express
-  - UUID
+- Axios
+- React-router-dom
+- React-calendar library
+- React-draggable library
+- Knex
+- UUID
 
 ### APIs
 
 ### Sitemap
 
 - Home page
-- List of days of week
 - Register
 - Login
+- Calendar Page
+- Task Page
 
 ### Auth
 
@@ -65,11 +64,11 @@ Traditional task management can be boring or challenging for kids, potentially d
 
 - Create client
 
-  - Set up a React project with routes for home/login, daily task views, and settings using React Router.
+  - Set up a React project with routes for home, login/signup,calendar, daily task views using React Router.
 
 - Create server
 
-  - Initialize an Express.js project for the backend with basic routing.
+- Initialize an Express.js project for the backend with basic routing.
 
 - Develop CRUD operations for tasks on both client and server sides.
 
@@ -80,8 +79,8 @@ Traditional task management can be boring or challenging for kids, potentially d
 - Deploy client and server projects so all commits will be reflected in production
 
 - Feature: Home page
-- Feature: Page for each day of week
-- Feature: Create account
+- Feature: Create account or Login to account
+- Feature: Page for each day
 
   - Implement register page + form
   - Create POST /users/register endpoint
@@ -100,8 +99,6 @@ Traditional task management can be boring or challenging for kids, potentially d
 - Implement draggable tasks
 
 - Add sound notifications for tasks
-
-- Create a Dark Mode toggle based on user preference
 
 Implement a daily Star Wars quote feature, fetching quotes from an external API or a predefined list.
 

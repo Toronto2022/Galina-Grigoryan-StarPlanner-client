@@ -4,12 +4,15 @@ import CreateTaskPopup from "../../modals/CreateTask";
 import Card from "../../components/Card/Card";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./ToDo.scss";
+import { useLocation } from "react-router-dom";
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const TodoList = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -17,22 +20,29 @@ const TodoList = () => {
       console.log("No token found, user might not be logged in.");
       return;
     }
+    const selected_Date = location.state?.date
+      ? new Date(location.state.date).toISOString().split("T")[0]
+      : new Date().toISOString().split("T")[0];
+    setSelectedDate(selected_Date);
+
     const fetchTasks = async () => {
       try {
-        const response = await axios.get(`${REACT_APP_SERVER_URL}/api/tasks`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.post(
+          `${REACT_APP_SERVER_URL}/api/tasks/date`,
+          { date: selected_Date },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
         const tasksWithPosition = response.data.map((task) => ({
           ...task,
           position: task.position ? JSON.parse(task.position) : { x: 0, y: 0 },
         }));
         setTaskList(tasksWithPosition);
       } catch (error) {
-        console.error("Error fetching tasks", error);
+        console.error("Error fetching tasks for date", error);
       }
     };
     fetchTasks();
-  }, []);
+  }, [location.state?.date]);
 
   const updatePosition = async (updatedTask, index) => {
     const token = sessionStorage.getItem("token");
@@ -131,7 +141,10 @@ const TodoList = () => {
       );
 
       let tempList = [...taskList];
-      tempList.push(response.data);
+      tempList.push({
+        ...response.data,
+        position: JSON.parse(response.data.position),
+      });
       setTaskList(tempList);
       setModal(false);
     } catch (error) {
@@ -161,7 +174,12 @@ const TodoList = () => {
           ))}
       </div>
       {modal && (
-        <CreateTaskPopup toggle={toggle} modal={modal} save={saveTask} />
+        <CreateTaskPopup
+          toggle={toggle}
+          modal={modal}
+          save={saveTask}
+          selectedDate={selectedDate}
+        />
       )}
     </div>
   );

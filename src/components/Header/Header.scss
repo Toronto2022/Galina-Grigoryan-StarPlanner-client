@@ -2,9 +2,10 @@
 @import "../../styles/partials/variables.scss";
 @import "../../styles/partials/reset.scss";
 
-.header {
+.header-main {
   display: flex;
   justify-content: space-between;
+  background-color: #dedfe2;
   &__logo {
     width: 4rem;
     height: 4rem;

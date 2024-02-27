@@ -42,7 +42,7 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
       {isLoginError && <label style={{ color: "red" }}>{errorMessage}</label>}
       <form onSubmit={handleLogin} className="login__form">
         <div className="form-group">
-          Username:{" "}
+          Username:
           <input
             className="login__input"
             type="text"
@@ -51,7 +51,7 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
           />
         </div>
         <div className="form-group">
-          Password:{" "}
+          Password:
           <input
             className="login__input"
             type="password"

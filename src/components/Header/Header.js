@@ -14,12 +14,12 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
     navigate("/");
   };
   return (
-    <div className="header">
+    <div className="header-main">
       <Link to="/">
-        <img className="header__logo" src={logo} alt="logo"></img>
+        <img className="header-main__logo" src={logo} alt="logo"></img>
       </Link>
       {isLoggedIn && (
-        <button className="header__btn" onClick={handleLogout}>
+        <button className="header-main__btn" onClick={handleLogout}>
           Log Out
         </button>
       )}
