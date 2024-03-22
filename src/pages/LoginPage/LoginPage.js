@@ -20,7 +20,6 @@ export default function LoginPage({ isLoggedIn, setIsLoggedIn }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(loginUrl, {
         username: e.target.username.value,

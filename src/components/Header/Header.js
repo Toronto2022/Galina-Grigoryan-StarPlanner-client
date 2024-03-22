@@ -9,7 +9,6 @@ export default function Header({ isLoggedIn, setIsLoggedIn }) {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     setIsLoggedIn(false);
-    console.log(navigate);
 
     navigate("/");
   };
